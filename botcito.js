@@ -1,15 +1,18 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const config = require("./config.json");
+
+let prefix = config.prefix;
 
 client.on('ready', () => {
     console.log(`Holi`);
  });
  
  client.on('message', (message) => {
-   if(message.content.startsWith('ping')) {
-     message.channel.send(`pong 🏓!!`);
+    if(message.content.startsWith(prefix + 'ping')) {
+        message.channel.send(`pong 🏓!!`);
    }
  
  });
  
- client.login('token');
+ client.login(config.token);
